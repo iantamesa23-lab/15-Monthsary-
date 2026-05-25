@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 15th Anniversary</title>
+    <style>
+        :root {
+            --primary-color: #4a1525;
+            --accent-color: #d4af37; /* Gold for 15 years */
+            --bg-color: #fff9f9;
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Header Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(74, 21, 37, 0.6), rgba(74, 21, 37, 0.8)), 
+                        url('your-main-background.jpg') center/cover no-repeat; /* Add a main background here if you like */
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--accent-color);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .scroll-down {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #ddd;
+            animation: bounce 2s infinite;
+        }
+
+        /* Timeline Section */
+        .timeline-container {
+            max-width: 1000px;
+            margin: 100px auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        /* The central line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        /* Timeline Memory Blocks */
+        .memory-block {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        /* Animation class triggered by JS */
+        .memory-block.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        /* Dots on the timeline line */
+        .memory-block::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--accent-color);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .right::after { left: -8px; }
+
+        /* Card Content Box */
+        .memory-content {
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .memory-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .memory-img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-top: 15px;
+            background-color: #eee; /* Placeholder color */
+        }
+
+        /* Love Quote Section */
+        .quote-section {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+
+        .quote-section span {
+            display: block;
+            font-size: 1rem;
+            margin-top: 15px;
+            color: var(--accent-color);
+            font-style: normal;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #222;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Responsive Design for Mobile */
+        @media screen and (max-width: 768px) {
+            .timeline-container::after { left: 31px; }
+            .memory-block { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .right { left: 0; }
+            .memory-block::after { left: 23px; right: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy 15th Anniversary</h1>
+        <p>15 Years of Love, Laughter, & Beautiful Memories</p>
+        <div class="scroll-down">Scroll down to see our story ▼</div>
+    </header>
+
+    <section class="timeline-container">
+
+        <div class="memory-block left">
+            <div class="memory-content">
+                <div class="memory-date">The Beginning</div>
+                <p>Add the story or saying about how you two met or started your journey here. A sweet reminder of day one.</p>
+                <img src="your-photo1.jpg" alt="Our First Photo" class="memory-img">
+            </div>
+        </div>
+
+        <div class="memory-block right">
+            <div class="memory-content">
+                <div class="memory-date">An Unforgettable Milestone</div>
+                <p>Write a saying or description here about a favorite trip, a shared achievement, or a major life step you took together.</p>
+                <img src="your-photo2.jpg" alt="A Special Milestone" class="memory-img">
+            </div>
+        </div>
+
+        <div class="memory-block left">
+            <div class="memory-content">
+                <div class="memory-date">The Little Moments</div>
+                <p>It’s not just the big events, but the quiet, everyday moments that made these 15 years so incredibly special.</p>
+                <img src="your-photo3.jpg" alt="Everyday Love" class="memory-img">
+            </div>
+        </div>
+
+        <div class="memory-block right">
+            <div class="memory-content">
+                <div class="memory-date">Today & Beyond</div>
+                <p>15 years later, and my favorite place is still right next to you. Cheers to the next beautiful chapter of our lives!</p>
+                <img src="your-photo4.jpg" alt="Present Day" class="memory-img">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="quote-section">
+        "Grow old along with me! The best is yet to be."
+        <span>- FOREVER & ALWAYS</span>
+    </section>
+
+    <footer>
+        <p>Made with love for our 15th Anniversary © 2026</p>
+    </footer>
+
+    <script>
+        const blocks = document.querySelectorAll('.memory-block');
+
+        const checkBlocks = () => {
+            const triggerBottom = (window.innerHeight / 5) * 4;
+
+            blocks.forEach(block => {
+                const blockTop = block.getBoundingClientRect().top;
+
+                if(blockTop < triggerBottom) {
+                    block.classList.add('appear');
+                }
+            });
+        };
+
+        // Run on scroll
+        window.addEventListener('scroll', checkBlocks);
+        // Run once on load to show elements already on screen
+        window.addEventListener('load', checkBlocks);
+    </script>
+</body>
+</html>
